@@ -11,8 +11,14 @@ camera = new THREE.PerspectiveCamera(
   1000
 );
 
-renderer = new THREE.WebGLRenderer();
+renderer = new THREE.WebGLRenderer({ alpha: true });
 document.body.appendChild(renderer.domElement);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 renderer.render(scene, camera);
+
+// ジオメトリを作成
+let ballGeometry = new THREE.SphereGeometry(100, 64, 32);
+
+// マテリアルを作成
+let ballMaterial = new THREE.MeshPhysicalMaterial();
